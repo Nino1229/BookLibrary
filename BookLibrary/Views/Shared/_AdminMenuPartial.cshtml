@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using BookLibrary.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin"))
+{
+    <li class="nav-item">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                    <a class="dropdown-item" asp-area="Admin" asp-controller="Author" asp-action="Index">Autori</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-area="Admin" asp-controller="Book" asp-action="Index">Knjige</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-area="Admin" asp-controller="Publisher" asp-action="Index">Izdavači</a>
+                </li>
+            </ul>
+        </div>
+
+    </li>
+
+}

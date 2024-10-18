@@ -1,0 +1,18 @@
+﻿@model BookLibrary.Models.Publisher
+
+<h1>Izdavač @Html.DisplayFor(model => model.PublisherName)</h1>
+
+<hr />
+
+<p>Jeste li sigurni da želite obrisati izdavača?</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Obriši" class="btn btn-danger" />
+</form>
+
+<hr />
+
+<div>
+    <a asp-action="Index">Povratak na popis izdavača</a>
+</div>
