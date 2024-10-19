@@ -20,8 +20,6 @@ namespace BookLibrary.Areas.Admin.Controllers
         {
             var books = _dbcontext.Book.ToList();
 
-            Author author = new Author();
-
             return View(books);
         }
 
